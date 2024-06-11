@@ -123,6 +123,18 @@
   padding-top: 0.6rem;
   padding-left: 6.5rem;
   break-inside: avoid;
+  &:nth-child(1){
+    --animation-base-delay: 0.3s;
+  }
+  &:nth-child(2) {
+    --animation-base-delay: 1s;
+  }
+  &:nth-child(3) {
+    --animation-base-delay: 2s;
+  }
+  &:nth-child(4) {
+    --animation-base-delay: 3s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: 0 0 62px;
@@ -159,6 +171,8 @@
     border-radius: 50%;
     line-height: 5rem;
     text-align: center;
+    animation: animationBullet 0.6s cubic-bezier(.17,.67,.73,1.51) var(--animation-base-delay);
+    animation-fill-mode: both;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       top: 1rem;
@@ -178,7 +192,10 @@
   }
 
   p {
+    position: relative;
     margin: 0;
+    animation: animationText 0.5s ease-in-out calc(var(--animation-base-delay) + 0.3s);
+    animation-fill-mode: both;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);
@@ -190,6 +207,8 @@
   position: absolute;
   bottom: 6rem;
   right: 5.6rem;
+  animation: animationButton 1s ease-in-out 3s;
+  animation-fill-mode: both;
 
   @media (min-width: $stop-scaling) {
     bottom: 60px;
@@ -211,3 +230,63 @@
     right: 1.5rem;
   }
 }
+
+
+@keyframes animationBullet{
+  from {
+    color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleX(0) scaleY(0);
+  }
+  35%{
+    color: transparent;
+  }
+  to {
+    color: #fff;
+    opacity: 1;
+    visibility: visible;
+    transform: scaleX(1) scaleY(1);
+  }
+
+}
+
+@keyframes animationText {
+  from {
+    color: transparent;
+    opacity: 0;
+    visibility: hidden;
+    right: -8px;
+  }
+  35% {
+    color: transparent;
+  }
+  to {
+    color: #fff;
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+  }
+}
+@keyframes animationButton{
+  from {
+    opacity: 0;
+    visibility: hidden;
+    color: transparent;
+    max-width: 50px;
+  }
+  45% {
+    opacity: 1;
+    visibility: visible;
+    max-width: 50px;
+  }
+  70% {
+    max-width: 200px;
+    color: transparent;
+  }
+  to{
+    max-width: 100%;
+    color: #5f458c;
+  }
+}
+
