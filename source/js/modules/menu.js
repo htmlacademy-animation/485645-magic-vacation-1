@@ -26,6 +26,8 @@ export default () => {
         document.body.classList.remove(`menu-opened`);
       }
 
+      document.body.setAttribute(`data-section`, menulink.getAttribute(`data-href`));
+
       if ((menulink.getAttribute(`data-href`) === `prizes`) && (document.location.href.split(`#`)[1] === `story`)) {
         document.querySelector(`.story__background`).classList.add(`active`);
         await new Promise((resolve) => setTimeout(resolve, 500));

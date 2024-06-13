@@ -134,6 +134,18 @@
   }
 }
 
+@keyframes animateRollButton {
+  from {
+    transform: translateX(calc(-12rem * var(--button-dir))) rotate(calc(-360deg * var(--button-dir)));
+    opacity: 0;
+
+  }
+  to {
+    transform: translateX(0) rotate(0);
+    opacity: var(--button-opacity);
+  }
+}
+
 .slider__controls {
   position: absolute;
   bottom: 2.8rem;
@@ -164,6 +176,16 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  --button-opacity: 1;
+  --button-dir: 1;
+
+  .screen--story.active & {
+    animation: animateRollButton 1s ease-out both;
+  }
+
+  &:last-child {
+    --button-dir: -1;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -226,6 +248,7 @@
 
   &.swiper-button-disabled {
     opacity: 0.5;
+    --button-opacity: 0.5;
     pointer-events: none;
   }
 }
@@ -234,6 +257,7 @@
   position: absolute;
   bottom: 2.8rem;
   left: 50%;
+  opacity: 0;
   transform: translateX(-50%);
   width: 9rem;
   height: 4rem;
@@ -242,6 +266,11 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  transition: opacity 1s ease-out;
+
+  .screen--story.active & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;

@@ -22,7 +22,7 @@
   }
 }
 
-.result__images {
+.result__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,7 +39,21 @@
     right: -1rem;
   }
 
-  .result__image {
+  picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .result__image-part {
     position: absolute;
     animation-fill-mode: both;
     animation-timing-function: ease-out;
@@ -339,6 +353,16 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 45rem;
+    }
+  }
+
+  .result__button {
+    body.active & {
+      animation: fadeIn .5s .5s ease-out both;
+
+      span {
+        animation: animateResultButton .5s .5s ease-out both;
+      }
     }
   }
 }
