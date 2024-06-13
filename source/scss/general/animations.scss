@@ -1,0 +1,171 @@
+@keyframes slideInUp150 {
+  from {
+    transform: translateY(150%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.accent-text {
+  &__row {
+    display: inline-block;
+    clip-path: polygon(0 -200%, 200% -200%, 200% 100%, 0% 100%);
+    contain: layout;
+  }
+
+  &__char {
+    display: inline-block;
+    will-change: transform;
+  }
+}
+
+
+@keyframes animateLeaf1 {
+  from {
+    opacity: 0;
+    transform: rotate(-30deg) translateY(-6rem);
+  }
+
+  20% {
+    opacity: 1;
+    transform: rotate(10deg) translateY(2rem);
+  }
+
+  40% {
+    transform: rotate(-7deg) translateY(0);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-3deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes animateLeaf2 {
+  from {
+    opacity: 0;
+    transform: rotate(30deg) translateY(-6rem);
+  }
+
+  30% {
+    opacity: 1;
+    transform: rotate(-10deg) translateY(2rem);
+  }
+
+  45% {
+    transform: rotate(7deg) translateY(0);
+  }
+
+  60% {
+    transform: rotate(-5deg);
+  }
+
+  80% {
+    transform: rotate(3deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes animateLeafGreen {
+  from {
+    opacity: 0;
+    transform: rotate(-20deg) translateY(-2rem);
+  }
+
+  20% {
+    opacity: 1;
+    transform: rotate(15deg) translateY(.3rem);
+  }
+
+  40% {
+    transform: rotate(-8deg) translateY(0);
+  }
+
+  60% {
+    transform: rotate(5deg);
+  }
+
+  80% {
+    transform: rotate(-3deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes animateSuitcase {
+  from {
+    transform: scale(0);
+  }
+
+  70% {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes animateFlamingo {
+  from {
+    opacity: 0;
+    transform: translateY(100%) rotate(-25deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes animateFlamingoCont {
+  from {
+    transform: rotate(0) translate(0, 0);
+  }
+
+  50% {
+    transform: rotate(-5deg) translate(1%, 7%);
+  }
+
+  to {
+    transform: rotate(0) translate(0, 0);
+  }
+}
+
+@keyframes animateFormButton {
+  from {
+    opacity: 0;
+    color: $c-light;
+  }
+  50% {
+    opacity: 1;
+    color: $c-light;
+  }
+  100% {
+    opacity: 1;
+    color: $c-dark;
+  }
+}
+
+@keyframes animateFormInput {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

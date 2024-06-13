@@ -22,7 +22,7 @@
   }
 }
 
-.result__image {
+.result__images {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,18 +39,74 @@
     right: -1rem;
   }
 
-  picture {
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
+  .result__image {
+    position: absolute;
+    animation-fill-mode: both;
+    animation-timing-function: ease-out;
 
-  img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+    &--flamingo {
+      left: calc(50% - 20rem);
+      bottom: 11rem;
+      height: 25rem;
+      transform-origin: center 60%;
+
+      .screen--result.screen--show & {
+        animation: animateFlamingo .6s ease-out both,
+          animateFlamingoCont 1.5s .6s ease-in-out infinite;
+      }
+    }
+
+    &--leaf1 {
+      left: calc(50% - 2rem);
+      bottom: 18rem;
+      height: 24rem;
+      transform-origin: left center;
+
+      .screen--result.screen--show & {
+        animation-name: animateLeaf1;
+        animation-duration: 1.8s;
+        animation-delay: .2s;
+      }
+    }
+
+    &--leaf2 {
+      left: calc(50% - 37rem);
+      bottom: 9rem;
+      height: 24rem;
+      transform-origin: right center;
+
+      .screen--result.screen--show & {
+        animation-name: animateLeaf2;
+        animation-duration: 2s;
+        animation-delay: .2s;
+      }
+    }
+
+    &--suitcase {
+      left: calc(50% - 21rem);
+      bottom: 10rem;
+      height: 35rem;
+      transform-origin: 30% bottom;
+
+      .screen--result.screen--show & {
+        animation-name: animateSuitcase;
+        animation-duration: .5s;
+        animation-timing-function: ease-out;
+      }
+    }
+
+    &--leafgreen {
+      left: calc(50% - 1rem);
+      bottom: 15rem;
+      height: 16rem;
+      transform-origin: left center;
+
+      .screen--result.screen--show & {
+        animation-name: animateLeafGreen;
+        animation-duration: 1.6s;
+        animation-delay: .4s;
+      }
+    }
   }
 }
 
@@ -211,6 +267,24 @@
 
 .result__form {
   margin-top: auto;
+
+  .form__field {
+    animation: animateFormInput .7s 1.3s ease-out both;
+    transform-origin: right center;
+
+    &::placeholder {
+      opacity: 0;
+      transition: opacity .5s 1s ease-out;
+    }
+
+    .screen--result.screen--show &::placeholder {
+      opacity: 1;
+    }
+  }
+
+  .form__button {
+    animation: animateFormButton .5s 1.1s ease-out both;
+  }
 }
 
 .result--trip,
