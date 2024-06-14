@@ -23,7 +23,11 @@ const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
 
 window.addEventListener(`load`, ()=> {
-  document.querySelector(`body`).classList.add(`active`);
+  document.body.classList.add(`active`);
+  const hash = document.location.href.split(`#`);
+  if (hash.length >= 2) {
+    document.body.setAttribute(`data-section`, hash[1]);
+  }
 });
 
 const animateText = (domNode, settings) => {

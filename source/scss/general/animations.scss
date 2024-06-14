@@ -7,6 +7,17 @@
   }
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
 .accent-text {
   &__row {
     display: inline-block;
@@ -167,5 +178,15 @@
 
   to {
     transform: scaleX(1);
+  }
+}
+
+@keyframes animateResultButton {
+  from {
+    transform: translateX(7rem) rotate(180deg);
+  }
+
+  to {
+    transform: translateX(0) rotate(0);
   }
 }

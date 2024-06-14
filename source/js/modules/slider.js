@@ -4,6 +4,7 @@ export default () => {
   let storySlider;
   let sliderContainer = document.getElementById(`story`);
   sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
+  setActiveSlider(0);
 
   const setSlider = function () {
     if (((window.innerWidth / window.innerHeight) < 1) || window.innerWidth < 769) {
@@ -17,6 +18,7 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            setActiveSlider(storySlider.activeIndex);
             if (storySlider.activeIndex === 0 || storySlider.activeIndex === 1) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg"), linear-gradient(180deg, rgba(83, 65, 118, 0) 0%, #523E75 16.85%)`;
             } else if (storySlider.activeIndex === 2 || storySlider.activeIndex === 3) {
@@ -51,6 +53,7 @@ export default () => {
         },
         on: {
           slideChange: () => {
+            setActiveSlider(storySlider.activeIndex);
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
             } else if (storySlider.activeIndex === 2) {
@@ -79,4 +82,11 @@ export default () => {
   });
 
   setSlider();
+};
+
+const setActiveSlider = (index) => {
+  index = (index & ~1) >> 1;
+  for (let i = 0; i < 4; i++) {
+    document.body.classList.toggle(`slider${i + 1}`, i === index);
+  }
 };
