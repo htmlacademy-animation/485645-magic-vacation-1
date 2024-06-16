@@ -27,6 +27,11 @@ window.addEventListener(`load`, ()=> {
   const hash = document.location.href.split(`#`);
   if (hash.length >= 2) {
     document.body.setAttribute(`data-section`, hash[1]);
+
+    if (hash[1] === `prizes`) {
+      document.querySelector(`#p1start`).beginElement();
+      document.querySelector(`#p1start`).setAttribute(`data-started`, `1`);
+    }
   }
 });
 
