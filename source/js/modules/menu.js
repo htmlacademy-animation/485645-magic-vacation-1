@@ -28,6 +28,12 @@ export default () => {
 
       document.body.setAttribute(`data-section`, menulink.getAttribute(`data-href`));
 
+      const p1start = document.querySelector(`#p1start`);
+      if (menulink.getAttribute(`data-href`) === `prizes` && !p1start.getAttribute(`data-started`)) {
+        p1start.beginElement();
+        p1start.setAttribute(`data-started`, `1`);
+      }
+
       if ((menulink.getAttribute(`data-href`) === `prizes`) && (document.location.href.split(`#`)[1] === `story`)) {
         document.querySelector(`.story__background`).classList.add(`active`);
         await new Promise((resolve) => setTimeout(resolve, 500));

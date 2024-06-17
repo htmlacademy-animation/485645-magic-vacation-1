@@ -130,7 +130,7 @@
     .prizes__icon {
       position: relative;
       left: -5.9rem;
-      bottom: -1.4rem;
+      bottom: -0.7rem;
       width: 26.8rem;
 
       @media (min-width: $stop-scaling) {
@@ -152,6 +152,20 @@
 
       @media (max-width: $mobile) and (orientation: landscape) {
         width: 10rem;
+      }
+
+      &_desktop {
+        @media (max-width: $tablet) and (orientation: portrait) {
+          display: none;
+        }
+      }
+
+      &_mob {
+        display: none;
+
+        @media (max-width: $tablet) and (orientation: portrait) {
+          display: block;
+        }
       }
     }
   }
