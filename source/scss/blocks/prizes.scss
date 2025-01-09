@@ -201,6 +201,20 @@
       @media (max-width: $mobile) and (orientation: landscape) {
         width: 7rem;
       }
+
+      &_desktop {
+        @media (max-width: $tablet) and (orientation: portrait) {
+          display: none;
+        }
+      }
+
+      &_mob {
+        display: none;
+
+        @media (max-width: $tablet) and (orientation: portrait) {
+          display: block;
+        }
+      }
     }
   }
 
